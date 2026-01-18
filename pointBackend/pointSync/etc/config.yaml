@@ -1,0 +1,50 @@
+Name: pointSync
+Host: 0.0.0.0
+Port: 8888
+
+Mysql:
+  database: point
+  password: rootpasswd
+  port: 3306
+  max_open_conns: 1500
+  host: 127.0.0.1
+  log_level: info
+  max_conn_max_lifetime: 300
+  user: root
+  max_idle_conns: 10
+Kv:
+  Redis:
+    - pass: 
+      host: 127.0.0.1:6379
+      type: node
+
+Log:
+  # 日志输出模式：console(控制台), file(文件), volume(容器卷)
+  Mode: file
+  
+  # 日志级别：debug, info, error, severe
+  Level: info
+  
+  # 编码格式：json 或 plain
+  Encoding: json
+  
+  # 文件日志配置
+  Path: ./logs                    # 日志文件存放目录
+  MaxSize: 100                    # 单个日志文件最大大小（MB）
+  MaxBackups: 5                   # 保留的旧日志文件最大数量
+  MaxAge: 30                      # 保留旧日志文件的最大天数
+  Compress: true                  # 是否压缩旧日志文件
+  
+  # 日志保留天数（优先级高于 MaxAge）
+  KeepDays: 7
+  
+  # 堆栈打印冷却时间（毫秒），避免频繁打印堆栈
+  StackCooldownMillis: 100
+  
+  # 服务名称（可选）
+  ServiceName: pointSync-service
+
+
+ankr_cfg:
+  api_key: 875925cffe4dc81b18b7a8a2ea558ef3cd0eee2be63a27145f8c4d69cbb6a22b
+  https_url: https://rpc.ankr.com/eth_sepolia/
