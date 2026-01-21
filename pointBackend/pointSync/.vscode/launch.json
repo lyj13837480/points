@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug EasySwapSync",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/main.go",
+    //   "env": {
+    //     "CGO_LDFLAGS": "-L/opt/xxx/x86/base/identify/lib/linux/x86_64 -lIdentify"
+    //   },
+      "args": ["daemon"],
+      "dlvFlags": ["--headless", "--listen=:2345", "--api-version=2"]
+    }
+  ]
+}

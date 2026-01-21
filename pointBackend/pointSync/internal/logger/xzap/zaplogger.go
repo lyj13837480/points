@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"gopkg.in/natefinch/lumberjack.v2"
 
-	logging "github.com/ProjectsTask/EasySwapBase/logger"
+	logging "pointSync/internal/logger"
 )
 
 const (
@@ -69,7 +69,7 @@ func GetZapLogger() *zap.Logger {
 // SetUp 初始化zap Logger
 func SetUp(c logging.LogConf) (*ZapLogger, error) {
 	var opts []Option
-	var err error
+	// var err error
 	if len(c.Path) == 0 {
 		return nil, ErrLogPathNotSet
 	}
@@ -93,9 +93,9 @@ func SetUp(c logging.LogConf) (*ZapLogger, error) {
 		setupWithFiles(c)
 	}
 
-	if err != nil {
-		return nil, err
-	}
+	// if err != nil {
+	// 	return nil, err
+	// }
 
 	return &ZapLogger{
 		Logger: logger,

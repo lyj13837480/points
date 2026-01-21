@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 	"math/big"
-	"pointSync/pointSync/internal/chain"
+	"pointSync/internal/chain"
 
-	"pointSync/pointSync/internal/chain/chainClent/evmclient"
-	logTypes "pointSync/pointSync/internal/chain/types"
+	"pointSync/internal/chain/chainClent/evmclient"
+	logTypes "pointSync/internal/chain/types"
 
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
@@ -24,7 +24,7 @@ type ChainClient interface {
 	BlockWithHash(ctx context.Context, blockNumber uint64) (common.Hash, error)
 }
 
-func New(chainID int, nodeUrl string) (ChainClient, error) {
+func New(chainID int64, nodeUrl string) (ChainClient, error) {
 	switch chainID { //多链支持
 	case chain.EthChainID, chain.OptimismChainID, chain.SepoliaChainID:
 		return evmclient.New(nodeUrl)

@@ -2,8 +2,8 @@ package logic
 
 import (
 	"context"
-	"pointSync/pointSync/internal/model"
-	"pointSync/pointSync/internal/stores/gdb"
+	"pointSync/internal/model"
+	"pointSync/internal/stores/gdb"
 )
 
 type ChainLogic struct {
@@ -28,5 +28,5 @@ func (l *ChainLogic) QueryChainData(ctx context.Context) (chains []model.Chain, 
 }
 
 func (l *ChainLogic) Save(ctx context.Context, chainModel *model.Chain) error {
-	return gdb.DB.WithContext(ctx).Model(&model.Chain{}).Save(&chainModel).Error
+	return gdb.DB.WithContext(ctx).Model(&model.Chain{}).Where("chain_id = ?", chainModel.ChainID).Updates(&chainModel).Error
 }

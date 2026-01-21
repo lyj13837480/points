@@ -6,23 +6,20 @@ package logic
 import (
 	"context"
 
-	"pointSync/pointSync/internal/svc"
-	"pointSync/pointSync/internal/types"
+	"pointSync/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type PointSyncLogic struct {
 	logx.Logger
-	ctx    context.Context
-	svcCtx *svc.ServiceContext
+	ctx context.Context
 }
 
-func NewPointSyncLogic(ctx context.Context, svcCtx *svc.ServiceContext) *PointSyncLogic {
+func NewPointSyncLogic(ctx context.Context) *PointSyncLogic {
 	return &PointSyncLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
-		svcCtx: svcCtx,
 	}
 }
 

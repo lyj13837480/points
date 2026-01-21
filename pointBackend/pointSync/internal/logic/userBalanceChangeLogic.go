@@ -2,8 +2,8 @@ package logic
 
 import (
 	"context"
-	"pointSync/pointSync/internal/model"
-	"pointSync/pointSync/internal/stores/gdb"
+	"pointSync/internal/model"
+	"pointSync/internal/stores/gdb"
 )
 
 type UserBalanceChangeLogic struct {

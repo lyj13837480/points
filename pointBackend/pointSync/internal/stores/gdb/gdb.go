@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/schema"
 
-	timeUtil "pointSync/pointSync/internal/util/time"
+	timeUtil "pointSync/internal/util/time"
 )
 
 var DB *gorm.DB

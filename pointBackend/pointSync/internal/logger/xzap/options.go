@@ -8,7 +8,7 @@ import (
 	"go.uber.org/zap/zapcore"
 	"google.golang.org/grpc/codes"
 
-	logging "github.com/ProjectsTask/EasySwapBase/logger"
+	logging "pointSync/internal/logger"
 )
 
 type Options struct {

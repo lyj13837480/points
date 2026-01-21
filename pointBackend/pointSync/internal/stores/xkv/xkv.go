@@ -3,8 +3,8 @@ package xkv
 import (
 	"encoding/json"
 	"log"
-	"pointSync/pointSync/internal/config"
-	"pointSync/pointSync/internal/util/convert"
+	"pointSync/internal/config"
+	"pointSync/internal/util/convert"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -31,7 +31,7 @@ type Store struct {
 }
 
 // NewStore 新建键值存取器
-func NewStore(cfg *config.Config) {
+func NewStore(cfg *config.Config) *Store {
 
 	var c kv.KvConf
 	for _, con := range cfg.Kv.Redis {
@@ -54,6 +54,7 @@ func NewStore(cfg *config.Config) {
 		Store: kv.NewStore(c),
 		Redis: cn,
 	}
+	return S
 }
 
 // GetInt 返回给定key所关联的int值

@@ -5,13 +5,12 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"pointSync/internal/util/convert"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-
-	"github.com/ProjectsTask/EasySwapBase/kit/convert"
 )
 
 func TestCodeToErr(t *testing.T) {

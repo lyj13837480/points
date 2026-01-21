@@ -5,6 +5,8 @@ import (
 	"context"
 	"fmt"
 	"path"
+	"pointSync/internal/errcode"
+	"pointSync/internal/logger/xzap"
 	"time"
 
 	"github.com/golang/protobuf/proto"
@@ -15,9 +17,7 @@ import (
 	"google.golang.org/grpc/peer"
 	"google.golang.org/grpc/status"
 
-	"github.com/ProjectsTask/EasySwapBase/errcode"
-	logging "github.com/ProjectsTask/EasySwapBase/logger"
-	"github.com/ProjectsTask/EasySwapBase/logger/xzap"
+	logging "pointSync/internal/logger"
 )
 
 // PayloadUnaryServerInterceptor 一元服务器拦截器，用于记录服务端请求和响应

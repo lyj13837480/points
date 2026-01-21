@@ -9,9 +9,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/ProjectsTask/EasySwapBase/logger/xzap"
+	// xzap "pointSync/internal/logger/xzap"
 
-	logging "github.com/ProjectsTask/EasySwapBase/logger"
+	logging "pointSync/internal/logger"
+	"pointSync/internal/logger/xzap"
 )
 
 var (

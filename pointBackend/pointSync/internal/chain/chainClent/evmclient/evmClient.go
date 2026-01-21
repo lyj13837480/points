@@ -9,7 +9,7 @@ import (
 	ethClient "github.com/ethereum/go-ethereum/ethclient"
 	"github.com/pkg/errors"
 
-	logTypes "pointSync/pointSync/internal/chain/types"
+	logTypes "pointSync/internal/chain/types"
 )
 
 type Service struct {

@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	logging "github.com/ProjectsTask/EasySwapBase/logger"
+	logging "pointSync/internal/logger"
 )
 
 const (

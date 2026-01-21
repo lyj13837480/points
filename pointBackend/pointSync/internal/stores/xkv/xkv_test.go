@@ -1,31 +1,27 @@
 package xkv
 
 import (
+	"pointSync/internal/config"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/stores/cache"
-	"github.com/zeromicro/go-zero/core/stores/kv"
-	"github.com/zeromicro/go-zero/core/stores/redis"
 )
 
 func TestStore(t *testing.T) {
-	c := []cache.NodeConf{
-		{
-			RedisConf: redis.RedisConf{
-				Host: "localhost:6379",
-				Type: "node",
-			},
-			Weight: 100,
-		},
-	}
-
 	type testObj struct {
 		Id   int64  `json:"id"`
 		Name string `json:"name"`
 	}
-	NewStore(&kv.KvConf{Nodes: c})
-	s := S
+	s := NewStore(&config.Config{
+		Kv: &config.KvConf{
+			Redis: []*config.Redis{
+				{
+					Host: "localhost:6379",
+					Type: "node",
+				},
+			},
+		},
+	})
 
 	testKey1 := "cache:test:test_store:id:1"
 	t1 := &testObj{Id: 1, Name: "testName"}
@@ -83,18 +79,16 @@ func TestStore(t *testing.T) {
 }
 
 func TestRedis(t *testing.T) {
-	c := []cache.NodeConf{
-		{
-			RedisConf: redis.RedisConf{
-				Host: "localhost:6379",
-				Type: "node",
+	s := NewStore(&config.Config{
+		Kv: &config.KvConf{
+			Redis: []*config.Redis{
+				{
+					Host: "localhost:6379",
+					Type: "node",
+				},
 			},
-			Weight: 100,
 		},
-	}
-
-	NewStore(c)
-	s := S
+	})
 	_, err := s.Lpush("cache:a", "a")
 	assert.Nil(t, err)
 	_, err = s.Lpush("cache:a", "b")
